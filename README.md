@@ -16,34 +16,7 @@ Frontend React para análise e visualização de grafos com algoritmos como BFS,
 npm install
 ```
 
-### 2. Configurar o Backend
-
-Certifique-se de que o backend em C# está rodando em `http://localhost:5070`.
-
-**Importante:** Configure o CORS no seu `Program.cs`:
-
-```csharp
-var builder = WebApplicationBuilder.CreateBuilder(args);
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", builder =>
-    {
-        builder.WithOrigins("http://localhost:3000", "http://localhost:3001")
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
-});
-
-builder.Services.AddControllers();
-var app = builder.Build();
-
-app.UseCors("AllowFrontend");
-app.MapControllers();
-app.Run();
-```
-
-### 3. Rodar o Frontend
+### 2. Rodar o Frontend
 
 ```bash
 npm start
